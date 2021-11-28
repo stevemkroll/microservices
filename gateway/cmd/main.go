@@ -1,12 +1,12 @@
 package main
 
 import (
-	"gateway/pkg"
+	"gateway/service"
 	"log"
 )
 
 func main() {
-	s := pkg.NewService()
+	s := service.NewService()
 	if err := s.Run(); err != nil {
 		log.Panic(err)
 	}

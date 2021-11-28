@@ -1,9 +1,9 @@
-package pkg
+package service
 
 func NewService() *service {
 	return new(service)
 }
 
-type ServiceProvider interface {
+type Provider interface {
 	Run() error
 }

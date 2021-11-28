@@ -1,4 +1,4 @@
-package pkg
+package service
 
 import (
 	"net/http"
@@ -7,7 +7,7 @@ import (
 )
 
 type service struct {
-	ServiceProvider
+	Provider
 }
 
 func (s *service) Run() error {
