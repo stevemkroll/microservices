@@ -1,13 +1,8 @@
-module gateway
+module notification
 
 go 1.17
 
-replace notification => ../notification
-
-require (
-	github.com/gin-gonic/gin v1.7.7
-	notification v0.0.0-00010101000000-000000000000
-)
+require github.com/gin-gonic/gin v1.7.7
 
 require (
 	github.com/gin-contrib/sse v0.1.0 // indirect
