@@ -4,3 +4,7 @@ services:
     image: gateway
     ports:
       - 8000:8000
+  notification:
+    image: notification
+    ports:
+      - 8001:8001

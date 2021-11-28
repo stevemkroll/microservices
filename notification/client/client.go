@@ -2,8 +2,8 @@ package client
 
 import (
 	"fmt"
+	"log"
 	"net/http"
-	"os"
 
 	"github.com/gin-gonic/gin"
 )
@@ -13,11 +13,7 @@ type client struct {
 }
 
 func (cl *client) GetStatus(c *gin.Context) {
-	// notification:8001
-	endpoint := os.Getenv("HOSTNAME")
-	if endpoint == "" {
-		endpoint = "http://localhost:8001"
-	}
+	endpoint := "http://notification:8001"
 	req, err := http.NewRequest(http.MethodGet, endpoint, nil)
 	if err != nil {
 		c.JSON(http.StatusServiceUnavailable, gin.H{
@@ -30,6 +26,7 @@ func (cl *client) GetStatus(c *gin.Context) {
 	}
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
+		log.Printf("\n\n%+v\n\n", err)
 		c.JSON(http.StatusBadRequest, gin.H{
 			"notification": fmt.Sprintf("%d %s",
 				http.StatusBadRequest,
